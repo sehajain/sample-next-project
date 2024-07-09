@@ -11,7 +11,7 @@ on:
 
 jobs:
   build_and_deploy_job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest  # Use a Linux runner
     steps:
       - name: Checkout GitHub repository content
         uses: actions/checkout@v2
@@ -33,6 +33,6 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
-          app_location: '/'
-          output_location: '.next'
+          app_location: '/'  # Adjust this if your Next.js app is in a subdirectory
+          output_location: '.next'  # The build output location for Next.js
           api_location: 'api'  # Set this to the location of your API or leave it empty if not applicable
